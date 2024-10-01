@@ -1,0 +1,47 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="BHS2.MainWindow"
+        Title="BHS2"
+        Background="#34363C">
+    <StackPanel HorizontalAlignment="Center">
+        <ComboBox Name="ShapeSelector" SelectionChanged="OnShapeSelectionChanged">
+            <ComboBoxItem Content="Rectangle" />
+            <ComboBoxItem Content="Circle" />
+        </ComboBox>
+        <Canvas Name="ShapeCanvas" Width="400" Height="400" Background="#272727" ClipToBounds="True"/>
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Center" Width="300">
+            <TextBlock Text="{Binding Value, ElementName=RectWidthSlider, StringFormat='Rectangle Width: {0}'}" VerticalAlignment="Center"/>
+            <Slider Name="RectWidthSlider" Minimum="0" Maximum="400" Value="100"/>
+            <TextBlock Text="{Binding Value, ElementName=RectHeightSlider, StringFormat='Rectangle Height: {0}'}" VerticalAlignment="Center"/>
+            <Slider Name="RectHeightSlider" Minimum="0" Maximum="400" Value="100"/>
+            <TextBlock Text="{Binding Value, ElementName=RectRotationSlider, StringFormat='Rectangle Rotation: {0}'}" VerticalAlignment="Center"/>
+            <Slider Name="RectRotationSlider" Minimum="0" Maximum="360" Value="0"/>
+            <TextBlock Text="{Binding Value, ElementName=CircleRadiusSlider, StringFormat='Circle Radius: {0}'}" VerticalAlignment="Center"/>
+            <Slider Name="CircleRadiusSlider" Minimum="0" Maximum="200" Value="50"/>
+            <TextBlock Text="{Binding Value, ElementName=CircleHScaleSlider, StringFormat='Circle Horizontal Scale: {0}'}" VerticalAlignment="Center"/>
+            <Slider Name="CircleHScaleSlider" Minimum="0.1" Maximum="2" Value="1"/>
+            <TextBlock Text="{Binding Value, ElementName=CircleVScaleSlider, StringFormat='Circle Vertical Scale: {0}'}" VerticalAlignment="Center"/>
+            <Slider Name="CircleVScaleSlider" Minimum="0.1" Maximum="2" Value="1"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Rectangle Color:" VerticalAlignment="Center"/>
+                <TextBox Name="RectColorTextBox" Width="100" Text="Blue"/>
+                <TextBlock Text="Circle Color:" VerticalAlignment="Center"/>
+                <TextBox Name="CircleColorTextBox" Width="100" Text="Red"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Text on Shape:" VerticalAlignment="Center"/>
+                <TextBox Name="ShapeTextTextBox" Width="100" Text=""/>
+                <TextBlock Text="Text Color:" VerticalAlignment="Center"/>
+                <TextBox Name="TextColorTextBox" Width="100" Text="Black"/>
+            </StackPanel>
+            <TextBlock Text="{Binding Value, ElementName=TextPosXSlider, StringFormat='Text Position X: {0}'}" VerticalAlignment="Center"/>
+            <Slider Name="TextPosXSlider" Minimum="0" Maximum="400" Value="0"/>
+            <TextBlock Text="{Binding Value, ElementName=TextPosYSlider, StringFormat='Text Position Y: {0}'}" VerticalAlignment="Center"/>
+            <Slider Name="TextPosYSlider" Minimum="0" Maximum="400" Value="0"/>
+            <Button Content="Update" Click="OnUpdateClick"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
